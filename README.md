@@ -24,7 +24,7 @@ A secure web application for storing and managing shared company credentials.
 ## ▶️ How to Run
 
 1. Clone repo:
-git clone https://github.com/YOUR_USERNAME/password-manager.git
+git clone https://github.com/abdurashidabdurasulov06/password-manager.git
 
 2. Open project:
 cd password-manager
