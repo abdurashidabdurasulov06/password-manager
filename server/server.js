@@ -24,7 +24,19 @@ app.post("/set-master", async(req,res)=>{
     res.send({status:"ok"})
 })
 
+app.get("/init", async (req, res) => {
 
+    const bcrypt = require("bcrypt")
+
+    const hash = await bcrypt.hash("1234", 10)
+
+    db.run(
+        "INSERT OR REPLACE INTO settings (id, masterPassword) VALUES (1, ?)",
+        [hash]
+    )
+
+    res.send("Master password set to 1234")
+})
 // unlock vault
 app.post("/unlock", (req,res)=>{
 

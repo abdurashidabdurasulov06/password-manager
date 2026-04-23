@@ -46,7 +46,29 @@ async function loadVault(){
 
     })
 }
+async function addCredential() {
 
+    const data = {
+        service: document.getElementById("service").value,
+        url: document.getElementById("url").value,
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+        notes: document.getElementById("notes").value,
+        category: "default"
+    }
+
+    const res = await fetch("/credential", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+
+    const result = await res.json()
+
+    console.log(result)
+
+    loadVault() // 🔥 THIS IS VERY IMPORTANT
+}
 
 function copy(text){
 
